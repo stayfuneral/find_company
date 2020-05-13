@@ -7,7 +7,6 @@ require $_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.
 use Bitrix\Main\Web\HttpClient;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Context;
-use Bitrix\Voximplant\StatisticTable;
 use Bitrix\Main\Loader;
 use Bitrix\Crm\Category\DealCategory;
 
@@ -98,8 +97,7 @@ if(!empty($request) && $request->isPost() !== false) {
                                 'id' => $dealId,
                                 'title' => $deal['TITLE'],
                                 'deal_stage' => $dealId[$stageId],
-                                'deal_category' => $dealCategories[$categoryId],
-                                'manager' => $deal['ASSIGNED_BY_ID'] != $company['ASSIGNED_BY_ID'] ? $dealManager['NAME'] . ' ' . $dealManager['LAST_NAME'] : $comp['manager']
+                                'deal_category' => $dealCategories[$categoryId]
                             ];
 
                         }
